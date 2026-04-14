@@ -11,7 +11,18 @@ To recap:
 
 3. During inference, the NL problem + proof is fed in as data and the FL problem + proof is generated, using the retrieval strategies in the paper, etc...
 
-4. The way to construct the dataset to train on/learn from is in `datasets_training/NuminaMath-LEAN-PF/dataset_construction`, by executing each of the files (the step1, step2, step3) files. This takes the original dataset in and generates the Natural Language proofs to pair with the formal language proofs. 
+Here are the steps as far as I can discern them from the README:
+
+Part 1: Construct the dataset using `datasets_training/NuminaMath-LEAN-PF`, by executing each of the files in `dataset_construction` folder.
+
+Part 2: Train the DualEncoder using the `joint_embedding` folder, using step1, step2, and step3 files.
+
+Part 3: Try and fine-tune the LLM.
+
+Part 4: Run the system + execute experiments.
+
+I think I am having some trouble on Parts 3 and 4. I looked in the codebase for "Kimina-Prover" and didn't find anything related to it. 
+
 
 
 1. As far as I know, the `poetry` lock command won't work as you need a `pyproject.toml` file, which doesn't exist.
