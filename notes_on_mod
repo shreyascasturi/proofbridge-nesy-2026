@@ -13,16 +13,16 @@ To recap:
 
 Here are the steps as far as I can discern them from the README:
 
-Part 1: Construct the dataset using `datasets_training/NuminaMath-LEAN-PF`, by executing each of the files in `dataset_construction` folder.
+Part 1: Construct the dataset using `datasets_training/NuminaMath-LEAN-PF`, by executing each of the files in `dataset_construction` folder. Note that you already have the files in there (the dataset_step2 and dataset_step3.csv files), so a new clone of the repo DOES NOT REQUIRE that we run the .py or .sh files.
 
-Part 2: Train the DualEncoder using the `joint_embedding` folder, using step1, step2, and step3 files.
+Part 2: Train the DualEncoder using the `joint_embedding` folder, using the dataset_step2 and step3 files from the first part.
+Note that you have the final folder of step2REPL_Parts folder, and then we need to call `step3_train_ST.py` and/or `step3_train.py`.
 
 Part 3: Try and fine-tune the LLM.
 
 Part 4: Run the system + execute experiments.
 
 I think I am having some trouble on Parts 3 and 4. I looked in the codebase for "Kimina-Prover" and didn't find anything related to it. 
-
 
 
 1. As far as I know, the `poetry` lock command won't work as you need a `pyproject.toml` file, which doesn't exist.
