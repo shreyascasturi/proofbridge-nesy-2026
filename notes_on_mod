@@ -1,0 +1,19 @@
+I downloaded the ProofBridge repo for a school project.
+
+My aim is to substitute the fine-tuned LLM (not the DualEncoder) with a smaller/very basic LLM and see what kinds of errors are generated in the Lean proofs. I would like to categorize those kinds of errors according to a math pedagogical paper about common errors in proofs. We can then see how changing the LLM can affect what types of errors are likely to be generated, etc...
+
+I just had some questions on how to run the software, so I will explain what I was able to find out.
+
+To recap:
+1. This codebase allows you to train a DualEncoder/JointEncoder on a specially constructed dataset. The DualEncoder allows the NL/FL pairs to be jointly/contrastively learned. The models used are the Qwen model and the lean-dojo model.
+
+2. The paper describes that once this training is done, a LLM (the Kimina-Prover) is fine-tuned on the dataset.
+
+3. During inference, the NL problem + proof is fed in as data and the FL problem + proof is generated, using the retrieval strategies in the paper, etc...
+
+4. The way to construct the dataset to train on/learn from is in `datasets_training/NuminaMath-LEAN-PF/dataset_construction`, by executing each of the files (the step1, step2, step3) files. This takes the original dataset in and generates the Natural Language proofs to pair with the formal language proofs. 
+
+
+1. As far as I know, the `poetry` lock command won't work as you need a `pyproject.toml` file, which doesn't exist.
+
+2. I needed to install `google-generativeai` using `pip` for the `createDataset_step3_addNLproofs.py`
